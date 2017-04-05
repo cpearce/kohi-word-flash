@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Kohimarama high frequency words flash cards</title>
+    <style>
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="group-panel"></div>
+    <div id="words-panel"></div>
+    <div id="next-button" class="hidden">[Next]</div>
+  </body>
+  <script>
+
+    function e(id) {
+      return document.getElementById(id);
+    }
+
+    var wordGroups = [
+      {
+        name: 'Magenta',
+        words: ['magenta word1', 'magenta word2', 'magenta word3']
+      },
+      {
+        name: 'Yellow',
+        words: ['yellow word1', 'yellow word2', 'yellow word3']
+      }
+    ];
+
+    var groupsPanel = e('group-panel');
+    var wordsPanel = e('words-panel');
+    var nextButton = e('next-button');
+
+    var visibleWord = null;
+
+    function resetWordPanel() {
+      visibleWord = null;
+      while (wordsPanel.firstChild) {
+        wordsPanel.removeChild(wordsPanel.firstChild);
+      }
+    }
+
+    function hideGroupPanel() {
+      groupsPanel.className = 'hidden';
+      nextButton.className = '';
+    }
+
+    function showGroupPanel() {
+      groupsPanel.className = '';
+      nextButton.className = 'hidden';
+      resetWordPanel();
+    }
+
+    function nextWord() {
+      visibleWord.className = 'hidden';
+      visibleWord = visibleWord.nextSibling;
+      if (!visibleWord) {
+        showGroupPanel();
+        return;
+      }
+      visibleWord.className = '';
+    }
+
+    function seque(group) {
+      return function() {
+        resetWordPanel();
+        hideGroupPanel();
+        for (var i = 0; i < group.words.length; i++) {
+          var div = document.createElement('div');
+          div.appendChild(document.createTextNode(group.words[i]));
+          div.className = 'hidden';
+          wordsPanel.appendChild(div);
+        }
+        wordsPanel.firstChild.className = '';
+        visibleWord = wordsPanel.firstChild;
+      }
+    }
+
+    function main() {
+      for (var group of wordGroups) {
+        var div = document.createElement('div');
+        div.appendChild(document.createTextNode(group.name));
+        div.addEventListener("click", seque(group));
+        groupsPanel.appendChild(div);
+      }
+      nextButton.addEventListener('click', nextWord);
+    }
+
+    main();
+
+  </script>
+</html>
