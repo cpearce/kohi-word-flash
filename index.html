@@ -7,12 +7,14 @@
       .hidden {
         display: none;
       }
+      div#words-panel {
+        padding: 50px;
+      }
     </style>
   </head>
   <body>
     <div id="group-panel"></div>
     <div id="words-panel"></div>
-    <div id="next-button" class="hidden">[Next]</div>
   </body>
   <script>
 
@@ -33,7 +35,6 @@
 
     var groupsPanel = e('group-panel');
     var wordsPanel = e('words-panel');
-    var nextButton = e('next-button');
 
     var wordList = [];
     var wordIndex = 0;
@@ -50,12 +51,10 @@
 
     function hideGroupPanel() {
       groupsPanel.className = 'hidden';
-      nextButton.className = '';
     }
 
     function showGroupPanel() {
       groupsPanel.className = '';
-      nextButton.className = 'hidden';
       resetWordPanel();
     }
 
@@ -90,7 +89,7 @@
         div.addEventListener("click", seque(group));
         groupsPanel.appendChild(div);
       }
-      nextButton.addEventListener('click', nextWord);
+      wordsPanel.addEventListener('click', nextWord);
     }
 
     main();
