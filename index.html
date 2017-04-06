@@ -35,6 +35,8 @@
     var wordsPanel = e('words-panel');
     var nextButton = e('next-button');
 
+    var wordList = [];
+    var wordIndex = 0;
     var visibleWord = null;
 
     function resetWordPanel() {
@@ -42,6 +44,8 @@
       while (wordsPanel.firstChild) {
         wordsPanel.removeChild(wordsPanel.firstChild);
       }
+      wordIndex = 0;
+      wordList = []
     }
 
     function hideGroupPanel() {
@@ -56,27 +60,26 @@
     }
 
     function nextWord() {
-      visibleWord.className = 'hidden';
-      visibleWord = visibleWord.nextSibling;
-      if (!visibleWord) {
+      if (visibleWord) {
+        visibleWord.parentNode.removeChild(visibleWord);
+      }
+      if (wordIndex >= wordList.length) {
+        // Completed group.
         showGroupPanel();
         return;
       }
-      visibleWord.className = '';
+      visibleWord = document.createTextNode(wordList[wordIndex]);
+      wordsPanel.appendChild(visibleWord);
+      wordIndex++;
     }
 
     function seque(group) {
       return function() {
+        console.log("seque " + group.words);
         resetWordPanel();
         hideGroupPanel();
-        for (var i = 0; i < group.words.length; i++) {
-          var div = document.createElement('div');
-          div.appendChild(document.createTextNode(group.words[i]));
-          div.className = 'hidden';
-          wordsPanel.appendChild(div);
-        }
-        wordsPanel.firstChild.className = '';
-        visibleWord = wordsPanel.firstChild;
+        wordList = group.words;
+        nextWord();
       }
     }
 
