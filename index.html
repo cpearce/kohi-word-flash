@@ -7,14 +7,31 @@
       .hidden {
         display: none;
       }
+      div#container {
+        max-width: 500px;        
+      }
       div#words-panel {
-        padding: 50px;
+        padding: 25px;
+        text-align: center;
+        font-size: 40px;       
+      }
+      div.groupName {
+        min-width: 100px;
+        max-width: 100px;
+        padding: 25px;
+        border: 2px solid white;
+        display: inline-block;
+        text-align: center;
+        font-size: 30px;
+        background-color: lightgray;
       }
     </style>
   </head>
   <body>
-    <div id="group-panel"></div>
-    <div id="words-panel"></div>
+    <div id="container">
+      <div id="group-panel"></div>
+      <div id="words-panel" class="hidden"></div>
+    </div>
   </body>
   <script>
 
@@ -97,11 +114,13 @@
 
     function hideGroupPanel() {
       groupsPanel.className = 'hidden';
+      wordsPanel.className = ''
     }
 
     function showGroupPanel() {
       groupsPanel.className = '';
       resetWordPanel();
+      wordsPanel.className = 'hidden'
     }
 
     function nextWord() {
@@ -133,6 +152,7 @@
         var div = document.createElement('div');
         div.appendChild(document.createTextNode(group.name));
         div.addEventListener("click", seque(group));
+        div.className = 'groupName';
         groupsPanel.appendChild(div);
       }
       wordsPanel.addEventListener('click', nextWord);
