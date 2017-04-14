@@ -12,7 +12,9 @@
       <div id="group-panel">
         <h1>Kohimarama School Year 1 Word Flash cards</h1>      
       </div>
-      <div id="words-panel"></div>
+      <div id="words-panel">
+        <div id="counter"></div>
+      </div>
     </div>
   </body>
   <script>
@@ -61,6 +63,7 @@
       visibleWord = document.createTextNode(wordList[wordIndex]);
       wordsPanel.appendChild(visibleWord);
       wordIndex++;
+      e('counter').innerHTML = wordIndex + " / " + wordList.length;
     }
 
     function seque(group) {
