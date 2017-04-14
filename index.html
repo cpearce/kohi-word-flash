@@ -10,7 +10,7 @@
   <body>
     <div id="container">
       <div id="group-panel"></div>
-      <div id="words-panel" class="hidden"></div>
+      <div id="words-panel"></div>
     </div>
   </body>
   <script>
@@ -43,7 +43,7 @@
     function showGroupPanel() {
       groupsPanel.className = '';
       resetWordPanel();
-      wordsPanel.className = 'hidden'
+      wordsPanel.className = 'hidden';
     }
 
     function nextWord() {
@@ -79,6 +79,7 @@
         groupsPanel.appendChild(div);
       }
       wordsPanel.addEventListener('click', nextWord);
+      showGroupPanel();
     }
 
     main();
