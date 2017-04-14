@@ -71,3 +71,10 @@ div#words-panel:not(.hidden) {
 .hidden {
   display: none;
 }
+
+h1 {
+  font-size: 1.2em;
+  font-family: arial;
+  margin: 1em;
+  text-align: center;
+}
