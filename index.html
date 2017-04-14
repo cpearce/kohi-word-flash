@@ -29,9 +29,9 @@
     var visibleWord = null;
 
     function resetWordPanel() {
-      visibleWord = null;
-      while (wordsPanel.firstChild) {
-        wordsPanel.removeChild(wordsPanel.firstChild);
+      if (visibleWord) {
+        visibleWord.parentNode.removeChild(visibleWord);
+        visibleWord = null;
       }
       wordIndex = 0;
       wordList = []
@@ -51,6 +51,7 @@
     function nextWord() {
       if (visibleWord) {
         visibleWord.parentNode.removeChild(visibleWord);
+        visibleWord = null;
       }
       if (wordIndex >= wordList.length) {
         // Completed group.
