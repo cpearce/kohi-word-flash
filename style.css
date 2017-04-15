@@ -83,3 +83,12 @@ div#counter {
   font-size: 0.5em;
   padding: 0.5em;
 }
+
+div#info {
+  font-size: 1.0em;
+  font-family: arial;
+  text-align: center;
+  border: solid white 5px;
+  padding: 1em;
+
+}

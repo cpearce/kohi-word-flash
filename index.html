@@ -10,7 +10,13 @@
   <body>
     <div id="container">
       <div id="group-panel">
-        <h1>Kohimarama School Year 1 Word Flash cards</h1>      
+        <h1>Kohimarama School Year 1 Word Flash cards</h1>
+        <div id="group-container">
+        </div>
+        <div id="info">
+          By Chris Pearce.<br>
+          <a href="https://github.com/cpearce/kohi-word-flash">Fork it on Github.</a><br>
+        </div>
       </div>
       <div id="words-panel">
         <div id="counter"></div>
@@ -87,12 +93,13 @@
     }
 
     function main() {
+      var gropusContainer = e('group-container');
       for (var group of wordGroups) {
         var div = document.createElement('div');
         div.appendChild(document.createTextNode(group.name));
         div.addEventListener("click", seque(group));
         div.className = 'groupName';
-        groupsPanel.appendChild(div);
+        gropusContainer.appendChild(div);
       }
       wordsPanel.addEventListener('click', nextWord);
       showGroupPanel();
