@@ -15,6 +15,9 @@ html, body {
   div#container {
     width: 500px;
   }
+  div#words-panel:not(.hidden) {
+    font-size: 6em;
+  }
   div.groupName {
     display: inline-block;
     min-width: 50%;
@@ -24,6 +27,9 @@ html, body {
 @media screen and (max-width:599px) {
   div#container {
     width: 300px;
+  }
+  div#words-panel:not(.hidden) {
+    font-size: 4em;
   }
   div.groupName {
     min-width: 10€0%;
@@ -42,7 +48,7 @@ div#words-panel {
 }
 
 div.groupName {
-  font-size: 2em;
+  font-size: 2.5em;
   text-align: center;
   background-color: lightgray;
   border: solid white 5px;
@@ -54,7 +60,6 @@ div#group-panel {
 }
 
 div#words-panel:not(.hidden) {
-  font-size: 4em;
   width: 100%;
   height: 100%;
   display: -webkit-flex;
