@@ -78,7 +78,7 @@ h1 {
 
 div#counter {
   position: fixed;
-  bottom: 0;
+  top: 0;
   right: 0;
   font-size: 0.5em;
   padding: 0.5em;
