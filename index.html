@@ -32,6 +32,7 @@
     var groupsPanel = e('group-panel');
     var wordsPanel = e('words-panel');
 
+    var listName = "";
     var wordList = [];
     var wordIndex = 0;
     var visibleWord = null;
@@ -43,6 +44,7 @@
       }
       wordIndex = 0;
       wordList = []
+      listName = "";
     }
 
     function hideGroupPanel() {
@@ -69,7 +71,8 @@
       visibleWord = document.createTextNode(wordList[wordIndex]);
       wordsPanel.appendChild(visibleWord);
       wordIndex++;
-      e('counter').innerHTML = wordIndex + " / " + wordList.length;
+      e('counter').innerHTML =
+        listName + ": " + wordIndex + " / " + wordList.length;
     }
 
     function shuffle(array) {
@@ -87,6 +90,7 @@
         resetWordPanel();
         hideGroupPanel();
         wordList = group.words.slice();
+        listName = group.name;
         shuffle(wordList);
         nextWord();
       }
