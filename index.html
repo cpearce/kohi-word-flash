@@ -80,6 +80,14 @@
 
     }
 
+    function nextWord() {
+      changeWord(1);
+    }
+
+    function prevWord() {
+      changeWord(-1);
+    }
+
     function shuffle(array) {
       for (var i = array.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1))
@@ -110,8 +118,8 @@
         div.className = 'groupName';
         gropusContainer.appendChild(div);
       }
-      e('right').addEventListener('click', function() { changeWord(1); });
-      e('left').addEventListener('click', function() { changeWord(-1); });
+      e('right').addEventListener('click', nextWord);
+      e('left').addEventListener('click', prevWord);
       showGroupPanel();
     }
 
