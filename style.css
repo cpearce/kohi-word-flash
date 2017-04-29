@@ -97,3 +97,26 @@ div#info {
   padding: 1em;
 
 }
+
+div#left {
+  position: fixed;
+  padding: 10px;
+  left: 0;
+  bottom: 0;
+}
+
+div#right {
+  position: fixed;
+  padding: 10px;
+  right: 0;
+  bottom: 0;
+}
+
+div#left > img {
+  max-height: 100px;
+  max-width: 100px;
+}
+div#right > img {
+  max-height: 100px;
+  max-width: 100px;
+}

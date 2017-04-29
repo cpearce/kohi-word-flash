@@ -16,10 +16,13 @@
         <div id="info">
           By Chris Pearce.<br>
           <a href="https://github.com/cpearce/kohi-word-flash">Fork it on Github.</a><br>
+<div>Icons made by <a href="http://www.flaticon.com/authors/dave-gandy" title="Dave Gandy">Dave Gandy</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> are licensed under <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
         </div>
       </div>
       <div id="words-panel">
         <div id="counter"></div>
+        <div id="left"><img src="left-arrow.png"></div>
+        <div id="right"><img src="right-arrow.png"></div>
       </div>
     </div>
   </body>
@@ -34,7 +37,7 @@
 
     var listName = "";
     var wordList = [];
-    var wordIndex = 0;
+    var wordIndex = -1;
     var visibleWord = null;
 
     function resetWordPanel() {
@@ -42,7 +45,7 @@
         visibleWord.parentNode.removeChild(visibleWord);
         visibleWord = null;
       }
-      wordIndex = 0;
+      wordIndex = -1;
       wordList = []
       listName = "";
     }
@@ -58,21 +61,23 @@
       wordsPanel.className = 'hidden';
     }
 
-    function nextWord() {
+    function changeWord(delta) {
       if (visibleWord) {
         visibleWord.parentNode.removeChild(visibleWord);
         visibleWord = null;
       }
-      if (wordIndex >= wordList.length) {
+      wordIndex += delta;
+      if (wordIndex >= wordList.length ||
+          wordIndex < 0) {
         // Completed group.
         showGroupPanel();
         return;
       }
       visibleWord = document.createTextNode(wordList[wordIndex]);
       wordsPanel.appendChild(visibleWord);
-      wordIndex++;
       e('counter').innerHTML =
-        listName + ": " + wordIndex + " / " + wordList.length;
+        listName + ": " + (wordIndex + 1) + " / " + wordList.length;
+
     }
 
     function shuffle(array) {
@@ -105,7 +110,8 @@
         div.className = 'groupName';
         gropusContainer.appendChild(div);
       }
-      wordsPanel.addEventListener('click', nextWord);
+      e('right').addEventListener('click', function() { changeWord(1); });
+      e('left').addEventListener('click', function() { changeWord(-1); });
       showGroupPanel();
     }
 
