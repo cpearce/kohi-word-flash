@@ -11,6 +11,10 @@ html, body {
           box-sizing: border-box;
 }
 
+* {
+  font-family: "Comic Sans MS";
+}
+
 @media screen and (min-width:568px) {
   div#container {
     width: 500px;
@@ -76,7 +80,6 @@ div#words-panel:not(.hidden) {
 
 h1 {
   font-size: 1.2em;
-  font-family: arial;
   margin: 1em;
   text-align: center;
 }
@@ -91,7 +94,6 @@ div#counter {
 
 div#info {
   font-size: 1.0em;
-  font-family: arial;
   text-align: center;
   border: solid white 5px;
   padding: 1em;
