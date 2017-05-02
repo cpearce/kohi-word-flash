@@ -12,7 +12,7 @@ html, body {
 }
 
 * {
-  font-family: "Comic Sans MS";
+  font-family: 'ChalkboardSE-Regular', 'Comic Sans MS', sans-serif;
 }
 
 @media screen and (min-width:568px) {
