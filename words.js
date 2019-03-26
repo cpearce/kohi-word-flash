@@ -1,22 +1,45 @@
 var wordGroups = [
   {
-    name: "Magenta",
+    name: "Magenta 1",
     words: [
-      "a", "am", "and", "at", "big",
-      "can", "come", "Dad", "going", "he",
-      "help", "here", "I", "in", "is",
-      "it", "like", "look", "me", "Mum",
-      "my", "no", "not", "said", "the",
-      "to", "up", "was", "we", "went",
-      "will", "with", "you",
+      "a", "am", "and", "at", "big", "can", "come",
     ]
   },
   {
-    name: "Yellow",
+    name: "Magenta 2",
+    words: [
+      "Dad", "going", "he", "help", "here", "I",
+    ]
+  },
+  {
+    name: "Magenta 3",
+    words: [
+      "in", "is", "it", "like", "look", "me", "Mum",
+    ]
+  },
+  {
+    name: "Magenta 4",
+    words: [
+      "my", "no", "not", "said", "the", "to", "up",
+    ]
+  },
+  {
+    name: "Magenta 5",
+    words: [
+      "was", "we", "went", "will", "with", "you",
+    ]
+  },
+  {
+    name: "Yellow 1",
     words: [
       "after", "big", "down", "get out", "have",
       "help", "here", "like", "little", "my",
       "not", "over", "past", "play", "put",
+    ]
+  },
+  {
+    name: "Yellow 2",
+    words: [
       "see", "she", "they", "this", "to",
       "under", "up", "we will", "went", "what",
       "will", "with", "yellow", "your",
